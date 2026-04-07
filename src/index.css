@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+    --color-hero-orange: #FC601D;
+    --color-white-bg: oklch(0.95 0 0);
+};
+
+header {
+    box-shadow: 0 0 4px 0;
+};
