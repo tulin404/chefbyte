@@ -8,3 +8,7 @@
 header {
     box-shadow: 0 0 4px 0;
 };
+
+#eTbEiLeoXhs21 {
+    @apply scale-0
+}
