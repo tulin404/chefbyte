@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import Header from "./components/Header"
 
-/* eslint-disable */
 
 export default function App() {
-    const browsewrTheme = () => {
+    const browserTheme = () => {
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     };
 
@@ -15,11 +14,22 @@ export default function App() {
     useEffect(() => {
     const sun = document.getElementById('sun');
     const moon = document.getElementById('moon');
+
+    if (!sun || !moon) return;
+
     if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+        sun.classList.add('rotate-90', 'opacity-0');
+        sun.inert = true;
+        moon.classList.remove('rotate-90', 'opacity-0');
+        moon.inert = false;
     } else {
         document.documentElement.classList.remove('dark');
-    }
+        moon.classList.add('rotate-90', 'opacity-0');
+        moon.inert = true
+        sun.classList.remove('rotate-90', 'opacity-0');
+        sun.inert = false
+    };
 
     localStorage.setItem('theme', theme);
     }, [theme])
